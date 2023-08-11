@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Delete Product</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+  <header class="bg-blue-500 p-4">
+    <h1 class="text-white text-2xl">Admin - Delete Product</h1>
+  </header>
+  
+  <div class="p-4">
+    <h2 class="text-xl font-semibold mb-4">Delete Product</h2>
+    <p class="mb-4">Are you sure you want to delete the product "<%= product.name %>"?</p>
+    <form method="post" action="/admin/delete-product/<%= product.id %>">
+      <button type="submit" class="bg-red-500 text-white px-4 py-2 mt-2 hover:bg-red-600 rounded">Delete</button>
+      <a href="/admin" class="block mt-2 text-blue-500 hover:underline">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

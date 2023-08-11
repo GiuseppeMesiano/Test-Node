@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+  <header class="bg-blue-500 p-4">
+    <h1 class="text-white text-2xl text-center">Admin - Products</h1>
+  </header>
+  
+  <div class="container mx-auto p-4">
+    <h2 class="text-2xl font-semibold mb-4">Product List</h2>
+    <table class="w-full border">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="p-4">Name</th>
+          <th class="p-4">Price</th>
+          <th class="p-4">Category</th>
+          <th class="p-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product => { %>
+          <tr>
+            <td class="p-4"><%= product.name %></td>
+            <td class="p-4">$<%= product.price.toFixed(2) %></td>
+            <td class="p-4"><%= getCategoryName(product.category) %></td>
+            <td class="p-4">
+              <a href="/admin/edit-product/<%= product.id %>" class="text-blue-500 hover:underline mr-2">Edit</a>
+              <a href="/admin/delete-product/<%= product.id %>" class="text-red-500 hover:underline">Delete</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="/admin/add-product" class="block mt-4 bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 rounded">Add Product</a>
+  </div>
+</body>
+</html>

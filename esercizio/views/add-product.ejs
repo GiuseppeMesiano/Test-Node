@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Add Product</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+  <header class="bg-blue-500 p-4">
+    <h1 class="text-white text-2xl">Admin - Add Product</h1>
+  </header>
+  
+  <div class="p-4">
+    <h2 class="text-xl font-semibold mb-4">Add New Product</h2>
+    <form method="post" action="/admin/add-product" class="space-y-4">
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold mb-1">Name:</label>
+        <input type="text" name="name" required class="p-2 border rounded">
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold mb-1">Description:</label>
+        <textarea name="description" rows="4" required class="p-2 border rounded"></textarea>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold mb-1">Price:</label>
+        <input type="number" name="price" step="0.01" required class="p-2 border rounded">
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold mb-1">Category:</label>
+        <select name="category" required class="p-2 border rounded">
+          <% categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+          <% }); %>
+        </select>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-semibold mb-1">Image URL:</label>
+        <input type="text" name="image" required class="p-2 border rounded">
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 mt-2 hover:bg-blue-600 rounded">Add Product</button>
+    </form>
+  </div>
+</body>
+</html>
